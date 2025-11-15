@@ -1,0 +1,162 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  background: #333;
+  color: #fff;
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+}
+
+.navbar ul li {
+  margin: 1rem;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  
+}
+
+/* ===== LAYOUT BASE ===== */
+.container {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "main"
+    "side"
+    "footer";
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.header {
+  grid-area: header;
+  background: #f4f4f4;
+  padding: 2rem;
+  text-align: center;
+}
+
+.main {
+  grid-area: main;
+  background: #eaeaea;
+  padding: 2rem;
+}
+
+.side {
+  grid-area: side;
+  background: #ddd;
+  padding: 2rem;
+
+  position: sticky;
+  top: 0;
+  height: 89vh;
+ 
+}
+
+.footer {
+  grid-area: footer;
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  position: sticky;
+}
+
+/* Aspecto catalogo */
+.catalogo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.catalogo-item {
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  text-align: center;
+}
+
+.catalogo-item img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+/* Botón */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.2rem;
+  background: #333;
+  color: #fff;
+ 
+}
+
+/* ===== BREAKPOINTS ===== */
+
+/* Tablets (>=768px) */
+@media (min-width: 768px) {
+  .container {
+    grid-template-areas:
+      "header header"
+      "main side"
+      "footer footer";
+    grid-template-columns: 4fr 1fr;
+  
+  }
+}
+
+/* Laptops (>=1200px) */
+@media (min-width: 1200px) {
+  .container {
+    grid-template-areas:
+      "header header header"
+      "main side side"
+      "footer footer footer";
+    grid-template-columns: 4fr 1fr 1fr;
+  
+  }
+}
+
+/* Móviles (<=576px): el menú se vuelve sidebar fijo */
+@media (max-width: 576px) {
+  body {
+    display: flex;
+  }
+
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 200px;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  .container {
+    margin-left: 200px; /* espacio para el sidebar */
+  }
+}
+
+
+
